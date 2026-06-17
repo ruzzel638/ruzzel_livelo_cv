@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruzze A. Livelo — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F5F6F3;
+    --paper: #FFFFFF;
+    --ink: #14181C;
+    --ink-soft: #5B6470;
+    --line: #DADFD9;
+    --accent: #1F7A4D;
+    --accent-soft: #E7F1EB;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent;}
+  a:hover, a:focus{border-bottom-color:var(--accent);}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  .page{
+    max-width:760px;
+    margin:0 auto;
+    padding:56px 28px 80px;
+  }
+
+
+  header.cv-header{
+    margin-bottom:40px;
+  }
+  .name-row{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  h1{
+    font-family:var(--mono);
+    font-size:clamp(28px, 5vw, 38px);
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .role{
+    font-family:var(--sans);
+    color:var(--ink-soft);
+    font-size:16px;
+    margin:6px 0 0;
+  }
+  .print-btn{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    background:var(--paper);
+    border:1px solid var(--line);
+    color:var(--ink);
+    padding:9px 14px;
+    border-radius:4px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .print-btn:hover{border-color:var(--accent); color:var(--accent);}
+
+  .contact-row{
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 16px;
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .contact-row a{color:var(--ink-soft);}
+  .contact-row a:hover{color:var(--accent);}
+  .contact-row span.sep{color:var(--line);}
+
+  nav.toc{
+    margin-top:24px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+  nav.toc a{color:var(--ink-soft);}
+  nav.toc a:hover{color:var(--accent); border-bottom-color:var(--accent);}
+
+
+  .doc{
+    position:relative;
+    border-left:1px solid var(--line);
+    padding-left:26px;
+  }
+
+  section.block{
+    position:relative;
+    margin-bottom:40px;
+  }
+  section.block:last-child{margin-bottom:0;}
+
+  .eyebrow{
+    position:relative;
+    font-family:var(--mono);
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink);
+    margin:0 0 16px;
+  }
+  .eyebrow::before{
+    content:"";
+    position:absolute;
+    left:-26.5px;
+    top:50%;
+    transform:translateY(-50%);
+    width:7px;
+    height:7px;
+    background:var(--accent);
+    border:1px solid var(--accent);
+  }
+
+  p.lead{
+    margin:0;
+    max-width:60ch;
+    color:var(--ink);
+  }
+
+
+  .skills-grid{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:10px 18px;
+  }
+  .skills-grid dt{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    padding-top:2px;
+  }
+  .skills-grid dd{
+    margin:0;
+  }
+
+  .project{
+    border:1px solid var(--line);
+    background:var(--paper);
+    border-radius:6px;
+    padding:20px 22px;
+    margin-bottom:18px;
+  }
+  .project:last-child{margin-bottom:0;}
+  .project-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:8px 16px;
+    margin-bottom:6px;
+  }
+  .project-title{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:16.5px;
+    margin:0;
+  }
+  .tags{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  .tag{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--accent);
+    background:var(--accent-soft);
+    border-radius:3px;
+    padding:2px 7px;
+    letter-spacing:.02em;
+    white-space:nowrap;
+  }
+  .project ul{
+    margin:10px 0 0;
+    padding-left:18px;
+  }
+  .project li{
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .project li:last-child{margin-bottom:0;}
+  .project li b{font-weight:600;}
+
+  .entry{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .entry:last-child{border-bottom:none; padding-bottom:0;}
+  .entry-main strong{display:block; font-size:15px;}
+  .entry-main span.sub{color:var(--ink-soft); font-size:14px;}
+  .entry-meta{
+    text-align:right;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .entry-meta .tag-honor{
+    display:inline-block;
+    margin-top:4px;
+    color:var(--accent);
+    background:var(--accent-soft);
+    padding:2px 7px;
+    border-radius:3px;
+    letter-spacing:.02em;
+  }
+
+
+  footer{
+    margin-top:48px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--ink-soft);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+ 
+  section.block{
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  section.block.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    section.block{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  @media (max-width:560px){
+    .skills-grid{grid-template-columns:1fr;}
+    .skills-grid dt{padding-top:0;}
+    .entry-meta{text-align:left;}
+  }
+
+
+  @media print{
+    body{background:#fff;}
+    .page{padding:0; max-width:none;}
+    .print-btn, nav.toc{display:none;}
+    .doc{border-left:1px solid #ccc;}
+    .project{break-inside:avoid; box-shadow:none;}
+    section.block{opacity:1; transform:none;}
+    a{color:var(--ink); border-bottom:none;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="cv-header">
+    <div class="name-row">
+      <div>
+        <h1>Ruzze A. Livelo</h1>
+        <p class="role">Computer Engineering Student — Mobile &amp; Web Developer</p>
+      </div>
+      <button class="print-btn" onclick="window.print()">Download / Print</button>
+    </div>
+
+    <div class="contact-row">
+      <span>Bongabong, Oriental Mindoro, Philippines</span>
+      <span class="sep">·</span>
+      <a href="tel:+639653469274">+63 965 346 9274</a>
+      <span class="sep">·</span>
+      <a href="mailto:ruzzellivelo911@gmail.com">ruzzellivelo911@gmail.com</a>
+      <span class="sep">·</span>
+      <a href="https://linkedin.com/in/ruzzel-livelo" target="_blank" rel="noopener">linkedin.com/in/ruzzel-livelo</a>
+      <span class="sep">·</span>
+      <a href="https://github.com/ruzzellivelo" target="_blank" rel="noopener">github.com/ruzzellivelo</a>
+    </div>
+
+    <nav class="toc">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#affiliations">Affiliations</a>
+    </nav>
+  </header>
+
+  <main class="doc">
+
+    <section class="block" id="about">
+      <h2 class="eyebrow">About</h2>
+      <p class="lead">I'm a Computer Engineering student who loves building both mobile and web applications. I primarily work with Java, XML, PHP, and JavaScript, creating projects that are responsive, interactive, and efficient. I enjoy designing interfaces, managing databases, and mapping out systems through diagrams and ERDs to bring ideas to life.</p>
+    </section>
+
+    <section class="block" id="skills">
+      <h2 class="eyebrow">Skills</h2>
+      <dl class="skills-grid">
+        <dt>Languages</dt>
+        <dd>XML, PHP, Java, Node.js, JavaScript</dd>
+
+        <dt>Tools</dt>
+        <dd>GitHub, VS Code, Visual Studio, SQL Server Management Studio, Android Studio</dd>
+
+        <dt>Databases</dt>
+        <dd>MySQL, Microsoft SQL Server, Supabase, Firebase</dd>
+
+        <dt>Other</dt>
+        <dd>Mobile development with Java &amp; XML (Android Studio); responsive UI design with Bootstrap Studio, React, and Vue</dd>
+      </dl>
+    </section>
+
+    <section class="block" id="projects">
+      <h2 class="eyebrow">Projects</h2>
+
+      <div class="project">
+        <div class="project-head">
+          <h3 class="project-title">Venture Inventory System</h3>
+          <div class="tags">
+            <span class="tag">HTML</span><span class="tag">JS</span><span class="tag">PHP</span><span class="tag">MySQL</span>
+          </div>
+        </div>
+        <ul>
+          <li><b>System &amp; UI design:</b> built a web-based inventory system with responsive layouts, interactive dashboards, and intuitive navigation, following modern UI/UX principles for accessibility and data-driven monitoring.</li>
+          <li><b>Database &amp; connectivity:</b> designed a relational MySQL database to manage products, stock levels, and transactions, with secure PHP-based CRUD operations linking the front end and back end in real time.</li>
+          <li><b>Architecture:</b> built a modular back end handling authentication, data validation, and automated inventory updates, with attention to scalability and efficient query execution.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3 class="project-title">E-Tinapa App</h3>
+          <div class="tags">
+            <span class="tag">Java</span><span class="tag">Kotlin</span><span class="tag">XML</span><span class="tag">Firebase</span><span class="tag">Arduino</span>
+          </div>
+        </div>
+        <ul>
+          <li><b>Overview:</b> built solo, this Android app is the control interface for an Arduino-powered tinapa (smoked fish) processing machine.</li>
+          <li><b>UI design:</b> built in Android Studio with Java, Kotlin, and XML, with a clean interface for real-time status monitoring, temperature control, and process tracking.</li>
+          <li><b>Data layer:</b> used Firebase Realtime Database to sync data between the app and the Arduino over a wireless link.</li>
+          <li><b>Integration:</b> programmed two-way data exchange (temperature, humidity, timer settings) between app and Arduino for precise, reliable control, then tested extensively for stable hardware/software performance.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3 class="project-title">E-Medicine App</h3>
+          <div class="tags">
+            <span class="tag">Java</span><span class="tag">Kotlin</span><span class="tag">XML</span><span class="tag">ESP32</span><span class="tag">GSM/SMS</span>
+          </div>
+        </div>
+        <ul>
+          <li><b>Overview:</b> built solo, this Android app connects to an ESP32-based medical device over SMS, enabling remote health monitoring and emergency alerts without needing internet access.</li>
+          <li><b>UI design:</b> built in Android Studio with Java, XML, and Kotlin, with a responsive interface for sending commands and receiving medical data and alerts.</li>
+          <li><b>Hardware integration:</b> programmed the ESP32 to collect and transmit sensor data via GSM SMS for reliable long-distance communication with the app.</li>
+          <li><b>Data handling:</b> implemented local storage and message parsing for real-time status updates and history tracking, then tested command transmission and response timing extensively.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3 class="project-title">Walkie-Talkie App</h3>
+          <div class="tags">
+            <span class="tag">Java</span><span class="tag">Kotlin</span><span class="tag">XML</span><span class="tag">Agora SDK</span>
+          </div>
+        </div>
+        <ul>
+          <li><b>Overview:</b> built a real-time voice communication Android app using the Agora SDK for live, low-latency audio channels.</li>
+          <li><b>Features:</b> implemented voice streaming, channel-based communication, and connection handling to support real-time audio transmission.</li>
+          <li><b>UI design:</b> built an intuitive, responsive interface for joining channels and managing voice sessions.</li>
+          <li><b>Testing:</b> verified audio reliability, connection stability, and overall app performance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block" id="education">
+      <h2 class="eyebrow">Education</h2>
+
+      <div class="entry">
+        <div class="entry-main">
+          <strong>Mindoro State University — Bongabong Campus</strong>
+          <span class="sub">Bachelor of Science in Computer Engineering</span>
+        </div>
+        <div class="entry-meta">
+          S.Y. 2022 – Present
+          <div class="tag-honor">Dean's Lister</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-main">
+          <strong>St. Joseph Academy</strong>
+          <span class="sub">Science, Technology, Engineering, and Mathematics (STEM)</span>
+        </div>
+        <div class="entry-meta">
+          S.Y. 2020 – 2022
+          <div class="tag-honor">With Honors</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-main">
+          <strong>Bongabong Technical and Vocational High School</strong>
+          <span class="sub">Junior High School</span>
+        </div>
+        <div class="entry-meta">
+          S.Y. 2016 – 2020
+          <div class="tag-honor">With Honors</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="affiliations">
+      <h2 class="eyebrow">Organizational Affiliations</h2>
+
+      <div class="entry">
+        <div class="entry-main">
+          <strong>ICPEP — Institute of Computer Engineers of the Philippines, Region 4B</strong>
+          <span class="sub">Member</span>
+        </div>
+        <div class="entry-meta">2022 – Present</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-main">
+          <strong>SUCCESS — Soaring for Useful and Competitive Computer Engineering Students' Society</strong>
+          <span class="sub">Member</span>
+        </div>
+        <div class="entry-meta">2022 – Present</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span id="stamp"></span>
+    <span>Ruzze A. Livelo · CV</span>
+  </footer>
+
+</div>
+
+<script>
+
+  document.getElementById('stamp').textContent =
+    '// generated ' + new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+  const sections = document.querySelectorAll('section.block');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    sections.forEach(s => observer.observe(s));
+  } else {
+    sections.forEach(s => s.classList.add('in-view'));
+  }
+</script>
+</body>
+</html>
